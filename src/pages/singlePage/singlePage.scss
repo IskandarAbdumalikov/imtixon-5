@@ -1,0 +1,194 @@
+@import "../../variables.scss";
+.single__item {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.single__card,
+.single__loading {
+  display: flex;
+  gap: 100px;
+  align-items: center;
+  height: 600px;
+}
+
+.single__card__left,
+.single__loading__img {
+  width: 60%;
+}
+.single__loading__info .single__card__right {
+  width: 35%;
+}
+
+.single__card__right,
+.single__loading__info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 45%;
+  gap: 50px;
+  h1 {
+    color: $primaryColor;
+    font-size: 58px;
+  }
+}
+
+.single__card__left img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+@media (max-width: 930px) {
+  .single__card,
+  .single__loading {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
+  .single__card__left,
+  .single__loading__img,
+  .single__loading__info .single__card__right {
+    width: 100%;
+  }
+}
+
+.single__loading__img,
+.single__loading__info {
+  width: 50%;
+  height: 100%;
+  border-radius: 5px;
+}
+
+.single__loading__item {
+  width: 100%;
+  height: 40px;
+  border-radius: 5px;
+}
+
+.single__loading__item:first-child {
+  width: 50%;
+}
+
+.single__loading__item:nth-child(2) {
+  height: 80px;
+}
+
+.single__loading__item:nth-child(3) {
+  width: 90%;
+}
+.single__loading__item:nth-child(4) {
+  width: 80%;
+}
+
+.single__loading__item:nth-child(5) {
+  width: 80%;
+}
+
+.single__loading__item:nth-child(6) {
+  width: 60%;
+}
+
+.single__loading {
+  height: 500px;
+  width: 100%;
+}
+
+.bg__animation {
+  background: linear-gradient(90deg, #eee, #ddd, #eee);
+  background-size: 200%;
+  animation: bgMove 1s linear 0s infinite;
+}
+@keyframes bgMove {
+  to {
+    background-position: 200%;
+  }
+}
+
+.singlePage {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+}
+
+.single__card__right__btns {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  .counter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: $primaryColor;
+    border: 1px solid $primaryColor;
+    border-radius: 10px;
+    width: 150px;
+    height: 50px;
+    padding: 10px 15px;
+    &__right {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 10px;
+      button {
+        background: transparent;
+        border: none;
+      }
+    }
+  }
+  .add__cart-btn {
+    display: flex;
+    align-items: center;
+    padding: 10px 25px;
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid $primaryColor;
+    background: $primaryColor;
+    color: $whiteColor;
+  }
+  .heart__btn {
+    width: 50px;
+    height: 50px;
+    background: $whiteColor;
+    border: 1px solid gray;
+    border-radius: 10px;
+  }
+  button:hover {
+    transition: 0.4s;
+    opacity: 0.7;
+  }
+}
+
+.single__bottom {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  .single__img {
+    width: 120px;
+    height: 120px;
+    border-radius: 17px;
+    background: #a2d2c9;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+}
+
+@media (max-width: 930px) {
+  .single__card,
+  .single__loading {
+    height: auto;
+    &__right,&__left{
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 420px){
+  .single__card__right__btns{
+    flex-wrap: wrap;
+  }
+}
