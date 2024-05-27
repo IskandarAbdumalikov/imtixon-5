@@ -8,6 +8,7 @@ import basket from "../../assets/basket.svg";
 import heart from "../../assets/heart.svg";
 import change from "../../assets/change.svg";
 import toDown from "../../assets/toDown.svg";
+import StayHome from "../../components/stayHome/StayHome";
 
 const SinglePage = () => {
   let { id } = useParams();
@@ -79,6 +80,51 @@ const SinglePage = () => {
         </div>
       </div>
       <div className="single__bottom">{singleImages}</div>
+      <div className="single__descriptions">
+        <p>
+          Spluttered narrowly yikes left moth in yikes bowed this that grizzly
+          much hello on spoon-fed that alas rethought much decently richly and
+          wow against the frequent fluidly at formidable acceptably flapped
+          besides and much circa far over the bucolically hey precarious
+          goldfinch mastodon goodness gnashed a jellyfish and one however
+          because.
+        </p>
+        <hr />
+        <p>
+          Laconic overheard dear woodchuck wow this outrageously taut beaver hey
+          hello far meadowlark imitatively egregiously hugged that yikes
+          minimally unanimous pouted flirtatiously as beaver beheld above
+          forward energetic across this jeepers beneficently cockily less a the
+          raucously that magic upheld far so the this where crud then below
+          after jeez enchanting drunkenly more much wow callously irrespective
+          limpet.
+        </p>
+        <h3>Packaging & Delivery</h3>
+        <p>
+          Less lion goodness that euphemistically robin expeditiously bluebird
+          smugly scratched far while thus cackled sheepishly rigid after due one
+          assenting regarding censorious while occasional or this more crane
+          went more as this less much amid overhung anathematic because much
+          held one exuberantly sheep goodness so where rat wry well
+          concomitantly.
+        </p>
+        <h3>Suggested Use</h3>
+        <p>Refrigeration not necessary.</p>
+        <p>Stir before serving</p>
+        <h3>Other Ingredients</h3>
+        <p>Organic raw pecans, organic raw cashews.</p>
+        <p>
+          This butter was produced using a LTG (Low Temperature Grinding)
+          process
+        </p>
+        <p>
+          Made in machinery that processes tree nuts but does not process
+          peanuts, gluten, dairy or soy
+        </p>
+        <h3>Warnings</h3>
+        <p>Oil separation occurs naturally. May contain pieces of shell.</p>
+      </div>
+      <StayHome />
     </section>
   );
   return (

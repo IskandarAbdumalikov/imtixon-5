@@ -17,8 +17,8 @@ const HomePage = () => {
 
   return (
     <Fragment>
-      <main>
-        <section className="hero container">
+      <main className=" container">
+        <section className="hero ">
           <div className="hero__left">
             <h1>Fresh Vegetables Big discount</h1>
             <h2>Save up to 50% off on your first order</h2>
@@ -32,7 +32,7 @@ const HomePage = () => {
           </div>
           <div className="hero__right"></div>
         </section>
-        <section className="featured__categories container">
+        <section className="featured__categories ">
           <div className="featured__categories__header">
             <h2>Featured Categories</h2>
             <ul>
@@ -82,7 +82,7 @@ const HomePage = () => {
         </section>
         <Products />
         <StayHome />
-        <section className="about__cards container">
+        <section className="about__cards ">
           <div className="about__card">
             <img src={about1} alt="" />
             <div className="about__card__info">

@@ -53,6 +53,24 @@
   }
 }
 
+.product__card__bottom{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  button{
+    background: $primaryColor;
+    color: $whiteColor;
+    border: 1px solid $primaryColor;
+    padding: 10px 15px;
+    border-radius: 10px;
+    transition: 0.4s;
+  }
+  button:hover{
+    color: $primaryColor;
+    background: $whiteColor;
+  }
+}
+
 
 @media (max-width:770px) {
   .products__header{

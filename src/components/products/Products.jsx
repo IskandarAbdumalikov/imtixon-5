@@ -35,12 +35,15 @@ const Products = () => {
         <p>
           by <span>{product.brand ? product.brand : "Businessman"}</span>
         </p>
-        <h3>$ {product.price}</h3>
+        <div className="product__card__bottom">
+          <h3>$ {product.price}</h3>
+          <button>Shop Now</button>
+        </div>
       </div>
     </div>
   ));
   return (
-    <section className="products container">
+    <section className="products">
       <div className="products__header">
         <h2>Popular Products</h2>
         <ul className="products__categories">

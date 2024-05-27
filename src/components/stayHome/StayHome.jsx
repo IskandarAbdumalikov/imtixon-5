@@ -3,7 +3,7 @@ import { BsSend } from "react-icons/bs";
 
 const StayHome = () => {
   return (
-    <section className="container stay__home">
+    <section className="stay__home">
       <div className="stay__home__left">
         <h2>Stay home & get your daily needs from our shop</h2>
         <p>Start Your Daily Shopping with Nest Mart</p>
