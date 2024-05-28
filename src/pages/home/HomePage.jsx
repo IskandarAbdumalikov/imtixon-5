@@ -10,28 +10,62 @@ import about3 from "../../assets/about3.svg";
 import about4 from "../../assets/about4.svg";
 import about5 from "../../assets/about5.svg";
 import { BsSend } from "react-icons/bs";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import "swiper/css";
+import "./swiper.scss";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
 const HomePage = () => {
   const [images] = useState(featuredImages);
   const [titles] = useState(featuredTitle);
+  let swiper = (
+    <SwiperSlide>
+      <section className="hero ">
+        <div className="hero__left">
+          <h1>Fresh Vegetables Big discount</h1>
+          <h2>Save up to 50% off on your first order</h2>
+          <form action="">
+            <button className="send__btn">
+              <BsSend />
+            </button>
+            <input type="text" />
+            <button className="subscribe__btn">Subscribe</button>
+          </form>
+        </div>
+        <div className="hero__right"></div>
+      </section>
+    </SwiperSlide>
+  );
 
   return (
     <Fragment>
       <main className=" container">
-        <section className="hero ">
-          <div className="hero__left">
-            <h1>Fresh Vegetables Big discount</h1>
-            <h2>Save up to 50% off on your first order</h2>
-            <form action="">
-              <button className="send__btn">
-                <BsSend />
-              </button>
-              <input type="text" />
-              <button className="subscribe__btn">Subscribe</button>
-            </form>
-          </div>
-          <div className="hero__right"></div>
-        </section>
+        <Swiper
+          slidesPerView={1}
+          spaceBetween={30}
+          centeredSlides={true}
+          loop={true}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
+          pagination={{
+            clickable: true,
+          }}
+          navigation={true}
+          modules={[Autoplay, Pagination, Navigation]}
+          className="mySwiper"
+        >
+          {swiper}
+          {swiper}
+          {swiper}
+          {swiper}
+        </Swiper>
+
         <section className="featured__categories ">
           <div className="featured__categories__header">
             <h2>Featured Categories</h2>
