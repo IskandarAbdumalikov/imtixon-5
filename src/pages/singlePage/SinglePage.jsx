@@ -15,35 +15,42 @@ const SinglePage = () => {
   let [data, setData] = useState([]);
   let [loading, setLoading] = useState(true);
   let [count, setCount] = useState(0);
+  let [imageOrder, setImageOrder] = useState(0);
+
   useEffect(() => {
     setLoading(true);
     axios
       .get(`products/${id}`)
-      .then((res) => setData(res.data))
+      .then((res) => setData(res?.data))
       .catch((err) => console.log(err))
       .finally(() => setLoading(false));
-  }, []);
-  console.log(data);
+  }, [id]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [id]);
 
   const renderImages = () => {
-    if (!data || !data.images || data.images.length === 0) {
+    if (!data || !data?.images || data?.images.length === 0) {
       return null;
     }
-
     return data.images.map((image, index) => (
       <div className="single__img" key={index}>
-        <img src={image} alt="" />
+        <img onClick={() => setImageOrder(index)} src={image} alt="" />
       </div>
     ));
   };
 
-  const singleImages = data ? renderImages() : null;
+  const singleImages = data && data.images ? renderImages() : null;
 
   let singleItem = (
     <section className="singlePage">
       <div className="single__card">
         <div className="single__card__left">
-          <img src={data.thumbnail} alt="" />
+          {data.images && data.images[imageOrder] && (
+            <img src={data.images[imageOrder]} alt="" />
+          )}
+          <div className="single__bottom">{singleImages}</div>
         </div>
         <div className="single__card__right">
           <h2>{data.title}</h2>
@@ -58,7 +65,6 @@ const SinglePage = () => {
                 <button onClick={() => setCount((p) => p + 1)}>
                   <img src={toUp} alt="" />
                 </button>
-
                 <button
                   disabled={count <= 0}
                   onClick={() => setCount((p) => p - 1)}
@@ -79,7 +85,6 @@ const SinglePage = () => {
           </div>
         </div>
       </div>
-      <div className="single__bottom">{singleImages}</div>
       <div className="single__descriptions">
         <p>
           Spluttered narrowly yikes left moth in yikes bowed this that grizzly
@@ -127,6 +132,7 @@ const SinglePage = () => {
       <StayHome />
     </section>
   );
+
   return (
     <div>
       <section className="single__item container">

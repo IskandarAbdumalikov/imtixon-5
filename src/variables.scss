@@ -1,3 +1,15 @@
 $primaryColor: #3bb77e;
 $whiteColor : white;
 $blackColor : black;
+
+@media (max-width:1000px) {
+    h1{
+        font-size: 45px !important;
+    }
+    h2{
+        font-size: 35px !important;
+    }
+    h3{
+        font-size: 20px !important;
+    }
+}

@@ -11,12 +11,15 @@
   display: flex;
   gap: 100px;
   align-items: center;
-  height: 600px;
+  height: 750px;
 }
 
 .single__card__left,
 .single__loading__img {
   width: 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 .single__loading__info .single__card__right {
   width: 35%;
@@ -37,7 +40,7 @@
 
 .single__card__left img {
   width: 100%;
-  height: 100%;
+  height: calc(100% - 50px);
   object-fit: contain;
 }
 
@@ -165,6 +168,9 @@
   display: flex;
   align-items: center;
   gap: 30px;
+  overflow: auto;
+  width: 100%;
+  height: 150px;
   .single__img {
     width: 120px;
     height: 120px;
@@ -185,6 +191,30 @@
     &__right,
     &__left {
       width: 100%;
+    }
+  }
+  .single__card__left {
+    position: relative;
+    .single__bottom {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      top: -70px;
+      left: 0px;
+      gap: 20px;
+      width: 100%;
+      overflow: auto;
+      .single__img {
+        width: 70px;
+        height: 70px;
+        border-radius: 10px;
+        background: #a2d2c9;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
     }
   }
 }

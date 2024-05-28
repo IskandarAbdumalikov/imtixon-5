@@ -9,11 +9,43 @@ import headphone from "../../../assets/headphone.svg";
 import compare from "../../../assets/compare.svg";
 import { FaSearch } from "react-icons/fa";
 import { CiLocationOn } from "react-icons/ci";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
+import NavSearchModule from "./NavSearchModule";
+import mainUrl from "../../../api/index";
 
 const Header = () => {
   let [showList, setShowList] = useState(false);
+  let [shrink, setShrink] = useState(false);
+  const [value, setValue] = useState("");
+  const [data, setData] = useState(null);
+  let isLogin = localStorage.getItem("x-auth-token");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setShrink(true);
+      } else {
+        setShrink(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!value.trim()) return;
+    mainUrl
+      .get(`/products/search?q=${value.trim()}`)
+      .then((res) => {
+        setData(res.data.products);
+        setValue("");
+      })
+      .catch((err) => console.log(err));
+  }, [value]);
   return (
     <header className="header">
       <div className="header__top container ">
@@ -53,7 +85,7 @@ const Header = () => {
         </div>
       </div>
       <hr />
-      <nav className="header__middle container ">
+      <nav className={`header__middle container ${shrink ? "shrink" : ""}`}>
         <NavLink to={"/"} className="header__logo">
           <img src={logo} alt="" />
         </NavLink>
@@ -61,8 +93,19 @@ const Header = () => {
           <select name="" id="">
             <option value="all">All categories</option>
           </select>
-          <input placeholder="Search for items..." type="text" name="" id="" />
-          <button className="">
+          <div className="search__input">
+            <input
+              value={value}
+              onChange={(e) => setValue(e.target.value)}
+              placeholder="Search for items..."
+              type="text"
+              name=""
+              id=""
+              style={{width:"100%",flex:1}}
+            />
+            {value.trim() ? <NavSearchModule data={data} /> : <></>}
+          </div>
+          <button style={{width:"5%"}}  className="search__icon">
             <FaSearch />
           </button>
         </form>
@@ -92,7 +135,7 @@ const Header = () => {
           </li>
 
           <li>
-            <NavLink>
+            <NavLink to={!isLogin ? "/register" : "admin"}>
               <img src={person} alt="" />
               Account
             </NavLink>
