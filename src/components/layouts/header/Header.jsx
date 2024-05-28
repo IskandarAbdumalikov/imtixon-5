@@ -40,10 +40,7 @@ const Header = () => {
     if (!value.trim()) return;
     mainUrl
       .get(`/products/search?q=${value.trim()}`)
-      .then((res) => {
-        setData(res.data.products);
-        setValue("");
-      })
+      .then((res) => setData(res.data.products))
       .catch((err) => console.log(err));
   }, [value]);
   return (
@@ -101,11 +98,11 @@ const Header = () => {
               type="text"
               name=""
               id=""
-              style={{width:"100%",flex:1}}
+              style={{ width: "100%", flex: 1 }}
             />
             {value.trim() ? <NavSearchModule data={data} /> : <></>}
           </div>
-          <button style={{width:"5%"}}  className="search__icon">
+          <button style={{ width: "5%" }} className="search__icon">
             <FaSearch />
           </button>
         </form>
