@@ -7,7 +7,7 @@ const Products = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [offset, setOffset] = useState(100);
+  const [offset, setOffset] = useState(1);
   const pageCount = 4;
   useEffect(() => {
     setLoading(true);
