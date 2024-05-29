@@ -15,10 +15,12 @@
     "react-dom": "^18.2.0",
     "react-icons": "^5.2.1",
     "react-router-dom": "^6.23.1",
+    "react-slider": "^2.0.6",
     "react-slider-swiper": "^2.0.6",
     "react-swiper": "^0.1.5",
     "react-toastify": "^10.0.5",
     "sass": "^1.77.2",
+    "styled-components": "^6.1.11",
     "swiper": "^11.1.3"
   },
   "devDependencies": {

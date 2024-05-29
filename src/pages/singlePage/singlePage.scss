@@ -35,10 +35,33 @@
   flex-direction: column;
   gap: 20px;
   width: 45%;
-  gap: 50px;
+  gap: 30px;
   h1 {
     color: $primaryColor;
     font-size: 58px;
+  }
+  &__price {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    &__right {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      p {
+        color: #fdc040;
+      }
+      h2 {
+        color: #b6b6b6;
+        text-decoration: line-through;
+      }
+    }
+  }
+  &__rating{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: #b6b6b6;
   }
 }
 
@@ -114,10 +137,25 @@
   }
 }
 
-.singlePage {
+.single__section{
+  padding-top: 100px;
+}
+
+.single__section,
+.single__section__top {
   display: flex;
   flex-direction: column;
   gap: 100px;
+}
+.single__section__top {
+  display: grid;
+  grid-template-columns: 1fr 25%;
+  gap: 50px;
+  &__left {
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+  }
 }
 
 .single__card__right__btns {
@@ -154,6 +192,7 @@
     border: 1px solid $primaryColor;
     background: $primaryColor;
     color: $whiteColor;
+    text-wrap: nowrap;
   }
   .heart__btn {
     width: 50px;
@@ -181,7 +220,7 @@
     border-radius: 17px;
     background: #a2d2c9;
     cursor: pointer;
-    .active__img{
+    .active__img {
       border: 1px solid gray;
       background: gray;
       border-radius: 10px;
@@ -249,5 +288,160 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 4;
     overflow: hidden;
+  }
+}
+.single__section__top__right {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.single__category__card,
+.single__price__card,
+.single__products__card {
+  padding: 30px;
+  box-shadow: 0px 0px 5px gray;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  overflow: auto;
+  position: relative;
+  h2 {
+    position: sticky;
+    border-bottom: 1px solid gray;
+    padding: 20px 0px;
+  }
+}
+
+.single__category__card__item {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0px 0px 2px gray;
+  border-radius: 5px;
+  gap: 20px;
+  img {
+    width: 30px;
+  }
+  h3 {
+    flex: 1;
+  }
+  .count {
+    width: 25px;
+    height: 25px;
+    background: #bce3c9;
+    color: $blackColor;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.slider__price {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  h3 {
+    span {
+      color: $primaryColor;
+    }
+  }
+}
+.single__price__card__color {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  .color__checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+}
+
+.single__price__card {
+  position: relative;
+  button {
+    width: 100px;
+    height: 40px;
+    background: $primaryColor;
+    color: $whiteColor;
+    border: 1px solid $primaryColor;
+    border-radius: 10px;
+    transition: 0.3s;
+  }
+  button:hover {
+    background: $whiteColor;
+    color: $primaryColor;
+  }
+}
+
+.cabbage__img {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+}
+
+.products__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  &__right {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    h3 {
+      color: $primaryColor;
+    }
+    img {
+      display: block;
+      margin-left: -15px;
+    }
+  }
+  img {
+    width: 80px;
+  }
+}
+
+@media (max-width: 1150px) {
+  .single__section__top {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    &__right {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 50px;
+    }
+  }
+}
+
+@media (max-width: 1010px) {
+  .single__section__top {
+    &__right {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+@media (max-width: 745px) {
+  .single__section__top {
+    &__right {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .single__section__top {
+    &__right {
+      grid-template-columns: 1fr;
+    }
+    .cabbage__img {
+      display: none;
+    }
   }
 }

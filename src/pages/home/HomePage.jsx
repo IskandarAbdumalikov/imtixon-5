@@ -1,7 +1,7 @@
 import { Fragment, useState } from "react";
 import "./homePage.scss";
 import { NavLink } from "react-router-dom";
-import featuredImages, { featuredTitle } from "../../components/constants.js";
+import { CATEGORIES_CARDS } from "../../static/index.js";
 import Products from "../../components/products/Products.jsx";
 import StayHome from "../../components/stayHome/StayHome.jsx";
 import about1 from "../../assets/about1.svg";
@@ -20,8 +20,7 @@ import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
 const HomePage = () => {
-  const [images] = useState(featuredImages);
-  const [titles] = useState(featuredTitle);
+  const [categoryCards] = useState(CATEGORIES_CARDS);
   let swiper = (
     <SwiperSlide>
       <section className="hero ">
@@ -85,11 +84,11 @@ const HomePage = () => {
             </ul>
           </div>
           <div className="featured__categories__cards">
-            {images.map((image, index) => (
-              <div key={index} className="featured__categories__cards__card">
-                <img src={image} alt="" />
-                <h3>{titles[index]}</h3>
-                <p>26 items</p>
+            {categoryCards.map((el, index) => (
+              <div style={{background:`${el.color}`}} key={index} className="featured__categories__cards__card">
+                <img src={el?.img} alt="" />
+                <h3>{el.title}</h3>
+                <p>{el.desc}</p>
               </div>
             ))}
           </div>

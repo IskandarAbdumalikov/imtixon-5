@@ -17,8 +17,6 @@ const Loading = () => {
       {loadingCard}
       {loadingCard}
       {loadingCard}
-      {loadingCard}
-      {loadingCard}
     </div>
   );
 };

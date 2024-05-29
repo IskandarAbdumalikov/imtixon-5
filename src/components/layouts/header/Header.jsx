@@ -1,6 +1,7 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./header.scss";
 import logo from "../../../assets/logo.svg";
+import x from "../../../assets/x.svg";
 import heart from "../../../assets/heart.svg";
 import cart from "../../../assets/cart.svg";
 import deals from "../../../assets/deals.svg";
@@ -165,32 +166,34 @@ const Header = () => {
             <NavLink to={"/"}>Home</NavLink>
           </li>
           <li>
-            <NavLink to={"/about"}>About</NavLink>
+            <NavLink to={"/about"}>Not Found</NavLink>
           </li>
           <li>
-            <NavLink to={"/shop"}>Shop</NavLink>
+            <Link to={""}>Shop</Link>
           </li>
           <li>
-            <NavLink to={"/vendors"}>Vendors</NavLink>
+            <Link to={""}>Vendors</Link>
           </li>
           <li>
-            <NavLink to={"/menu"}>Mega menu</NavLink>
+            <Link to={""}>Mega menu</Link>
           </li>
           <li>
-            <NavLink to={"/blog"}>Blog</NavLink>
+            <Link to={""}>Blog</Link>
           </li>
           <li>
-            <NavLink to={"/pages"}>Pages</NavLink>
+            <Link to={""}>Pages</Link>
           </li>
           <li>
-            <NavLink to={"/contact"}>Contact</NavLink>
+            <Link to={""}>Contact</Link>
           </li>
-          <button
+
+          <img
+            width={30}
             onClick={() => setShowList(false)}
             className="header__bottom__list__closer"
-          >
-            X
-          </button>
+            src={x}
+            alt=""
+          />
         </ul>
         <button onClick={() => setShowList(true)} className="hamburger">
           <GiHamburgerMenu />
