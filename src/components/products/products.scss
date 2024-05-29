@@ -3,17 +3,24 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 100px;
   ul {
     display: flex;
     align-items: center;
     gap: 50px;
+    li{
+      text-wrap: nowrap;
+    }
   }
 }
 
-.products{
+.products {
   display: flex;
   flex-direction: column;
   gap: 30px;
+  &__categories{
+    overflow: auto;
+  }
 }
 
 .products__cards {
@@ -53,11 +60,11 @@
   }
 }
 
-.product__card__bottom{
+.product__card__bottom {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  button{
+  button {
     background: $primaryColor;
     color: $whiteColor;
     border: 1px solid $primaryColor;
@@ -65,39 +72,61 @@
     border-radius: 10px;
     transition: 0.4s;
   }
-  button:hover{
+  button:hover {
     color: $primaryColor;
     background: $whiteColor;
   }
 }
 
-
-@media (max-width:770px) {
-  .products__header{
+@media (max-width: 770px) {
+  .products__header {
     display: flex;
     flex-direction: column;
     gap: 30px;
   }
-  .products__categories{
+  .products__categories {
     overflow: auto;
     width: 100%;
   }
 }
 
-@media (max-width:1300px) {
-.products__cards{
-  grid-template-columns: repeat(3,1fr);
-}
-}
-
-@media (max-width:900px) {
-.products__cards{
-  grid-template-columns: repeat(2,1fr);
-}
+@media (max-width: 1300px) {
+  .products__cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
-@media (max-width:650px) {
-.products__cards{
-  grid-template-columns: 1fr;
+@media (max-width: 900px) {
+  .products__cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
+
+@media (max-width: 650px) {
+  .products__cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+.see__more__btn {
+  width: 150px;
+  height: 50px;
+  border: 1px solid $primaryColor;
+  color: $whiteColor;
+  background: $primaryColor;
+  border-radius: 10px;
+  transition: 0.4s;
+  display: block;
+  margin: 0 auto;
+}
+.disabled{
+  color: $blackColor !important;
+  background: gray;
+  border-color: gray;
+  cursor: no-drop;
+}
+
+.see__more__btn:hover {
+  background: $whiteColor;
+  color: $primaryColor;
 }

@@ -36,7 +36,7 @@ const SinglePage = () => {
     }
     return data.images.map((image, index) => (
       <div className="single__img" key={index}>
-        <img onClick={() => setImageOrder(index)} src={image} alt="" />
+        <img className={`${imageOrder === index ? "active__img":""}`} onClick={() => setImageOrder(index)} src={image} alt="" />
       </div>
     ));
   };
@@ -48,7 +48,11 @@ const SinglePage = () => {
       <div className="single__card">
         <div className="single__card__left">
           {data.images && data.images[imageOrder] && (
-            <img src={data.images[imageOrder]} alt="" />
+            <img
+              className="single__card__left__main__image"
+              src={data.images[imageOrder]}
+              alt=""
+            />
           )}
           <div className="single__bottom">{singleImages}</div>
         </div>

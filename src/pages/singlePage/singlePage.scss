@@ -4,6 +4,7 @@
   flex-direction: column;
   gap: 50px;
   padding-top: 100px;
+  margin-top: 100px;
 }
 
 .single__card,
@@ -12,6 +13,9 @@
   gap: 100px;
   align-items: center;
   height: 750px;
+  .single__card__left__main__image {
+    height: 680px;
+  }
 }
 
 .single__card__left,
@@ -176,6 +180,13 @@
     height: 120px;
     border-radius: 17px;
     background: #a2d2c9;
+    cursor: pointer;
+    .active__img{
+      border: 1px solid gray;
+      background: gray;
+      border-radius: 10px;
+      cursor: default;
+    }
     img {
       width: 100%;
       height: 100%;

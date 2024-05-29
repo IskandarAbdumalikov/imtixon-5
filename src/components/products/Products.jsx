@@ -7,18 +7,24 @@ const Products = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [offset, setOffset] = useState(100);
+  const pageCount = 4;
   useEffect(() => {
     setLoading(true);
     axios
-      .get("/products")
+      .get("/products", {
+        params: {
+          limit: offset * pageCount + 4,
+        },
+      })
       .then((res) => setData(res.data))
       .catch((err) => setError(err.response.data))
       .finally(() => setLoading(false));
-  }, []);
+  }, [offset]);
   let uniqueCategories = Array.from(
     new Set(data?.products.map((el) => el.category))
   );
-  let categories = uniqueCategories.slice(0, 4).map((category, index) => (
+  let categories = uniqueCategories.map((category, index) => (
     <li style={{ cursor: "pointer" }} key={index}>
       {category}
     </li>
@@ -51,6 +57,13 @@ const Products = () => {
         </ul>
       </div>
       <div className="products__cards">{productCard}</div>
+      <button
+        disabled={loading}
+        className={`see__more__btn ${loading ? " disabled" : ""}`}
+        onClick={() => setOffset((p) => p + 1)}
+      >
+        {loading ? "Loading..." : "See more"}
+      </button>
     </section>
   );
 };
